@@ -150,6 +150,102 @@ isItRaining = !isItRaining
 isItRaining.toggle()
 
 // * The String type
+var stringOne = "Hello"
+var stringTwo = "World"
+
+var multiLine = """
+This is a multiline string literal.
+This shows how we can create a string over multiple lines.
+"""
+
+// use quotes to quote specific text in multiline string
+multiLine = """
+This is a multiline string literal.
+This shows how we can create a string over multiple lines.
+Jon says, "multiline string literals are cool"
+"""
+
+// iterator each character of a string
+for char in stringOne {
+    print(char)
+}
+
+stringOne.map {
+    print($0)
+}
+
+var stringA = "A"
+var stringB = "B"
+var stringC = stringA + stringB
+stringA += stringB
+
+// include a string in-line with another string
+stringA = "Jon"
+stringB = "Hello \(stringA)"
+
+// escape
+let str = "The main character said \"hello\""
+
+// raw string
+let str1 = #"The main character said "hello""#
+
+// string interpolation in raw string
+let ans = 42
+var str2 = #"The answer is \#(ans)"#
+
+// mutability
+var m = "Hello"
+let n = "HI"
+var o = " World"
+
+// This is valid because x is mutable
+m += o
+
+// This is invalid because y is not mutable
+// n += o
+
+// convert the case of the string
+stringOne = "hElLo"
+print("Lowercase String: \(stringOne.lowercased())")
+print("Uppercase String: \(stringOne.uppercased())")
+
+// equality
+stringOne = "Hello Swift"
+stringTwo = ""
+
+stringOne.isEmpty // false
+stringTwo.isEmpty // true
+
+stringOne == "hello swift" // false
+stringOne == "Hello Swift" // true
+
+stringOne.hasPrefix("Hello") // true
+stringOne.hasSuffix("Hello") // false
+
+// replace
+stringOne = "one,to,three,four"
+stringTwo = stringOne.replacingOccurrences(of: "to", with: "two")
+print(stringTwo)
+
+// substring
+var path = "/one/two/three/four"
+
+// Create start and end indexes
+let startIndex = path.index(path.startIndex, offsetBy: 4)
+let endIndex = path.index(path.startIndex, offsetBy: 14)
+
+let sPath = path[startIndex ..< endIndex] // returns the "/two/three"
+// convert the substring to a string
+let newStr = String(sPath)
+
+path[..<startIndex]
+path[endIndex...]
+
+path.last
+path.first
+
+// retrieve the number of characters in a string
+var length = path.count
 
 // * Tuples
 
