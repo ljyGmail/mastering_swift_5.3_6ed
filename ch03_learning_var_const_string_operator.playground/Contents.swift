@@ -397,23 +397,62 @@ if testOneGrade < acceptableGrade {
 
 // * Opertators
 // ** The assignment operator
+/*
+let x = 1
+var y  "Hello"
+a = b
+ */
 
 // ** Comparison operators
+2 == 1 // false, 2 does not equal 1
+2 != 1 // true, 2 does not equal 1
+2 > 1 // true, 2 is greater than 1
+2 < 1 // false, 2 is not less than 1
+2 >= 1 // true, 2 is greater or equal to 1
+2 <= 1 // false, 2 is not less or equal to 1
 
 // ** Arithmetic operators
+var sum = 4 + 2 // sum will equal 6
+var diff = 4 - 2 // diff will equal 2
+var prod = 4 * 2 // prod will equal 8
+var quot = 4 / 2 // quot will equal 2
+var concat = "Hello " + "World" // concat will equal "Hello World"
 
 // ** The remainder operator
+10 % 3
+10 % 6
 
 // ** Compound assignment operators
+var compund = 6
+compund += 2 // compound is now 8
+compund -= 2 // compound is now 6
+compund *= 2 // compound is now 12
+compund /= 2 // compound is now 6
 
 // ** The closed range operator
+for i in 1...3 {
+    print("Number: \(i)")
+}
 
 // ** The half-open range operator
+for i in 1..<3 {
+    print("Number: \(i)")
+}
 
 // ** The ternary conditional operator
+var xx = 2
+var yy = 3
+
+var zz = (yy > xx ? "yy is greater" : "xx is  greater") // zz equals "yy is greater"
 
 // ** The logical NOT operator
+var playPingpong = true
+var notPlay = !playPingpong // notPlay equals false
 
 // ** The logical AND operator
+var mm = true
+var nn = false
+var oo = mm && nn // oo equals false
 
 // ** The logical OR operator
+var pp = mm || nn // pp equals true
