@@ -243,18 +243,53 @@ for (index, value) in arrayTwoIterate.enumerated() {
 
 // * Dictionaries
 // ** Creating and initialzing dictionaries
+// create a immutable dictionary
+// let countries = ["US": "United States", "IN": "India", "UK": "United Kingdom"]
+
+// create a mutable dictionary
+// var countries = ["US": "United States", "IN": "India", "UK": "United Kingdom"]
+
+// create various dictionaries with different key-valuee types:
+var dic1 = [String:String]()
+var dic2 = [Int:String]()
+// var dic3 = [String:MyObject]()
+var dic4: [String:String] = [:]
+var dic5: [Int:String] = [:]
 
 // ** Accessing dictionary values
+var countries = ["US": "United States", "IN": "India", "UK": "United Kingdom"]
+var name = countries["US"]
 
 // ** Counting the keys or values in a dictionary
+var cnt = countries.count
 
 // ** Is the dictionary empty?
+var empty = countries.isEmpty
 
 // ** Updating the value of a key
+// subscript syntax
+countries["UK"] = "Great Britain"
+// The value of UK is now set to "Great Britain"
+
+var orig = countries.updateValue("Britain", forKey: "UK")
+// The value of UK is now set to "Britain"
+// The orig variable equals "Great Britain"
 
 // ** Adding a key-value pair
+countries = ["US": "United States", "IN": "India", "UK": "United Kingdom"]
+countries["FR"] = "France" // The value of "FR" is set to "France"
+
+orig = countries.updateValue("Germany", forKey: "DE")
+// The value of "DE" is set to  "Germany" and orig is nil
 
 // ** Removing a key-value pair
+countries = ["US": "United States", "IN": "India", "UK": "United Kingdom"]
+countries["IN"] = nil // The "IN" key/value pair is removed
+
+orig = countries.removeValue(forKey: "UK")
+// The "UK" key/value pair is removed and orig contains "United Kingdom"
+
+countries.removeAll()
 
 // * Set
 // ** Initializing a set
