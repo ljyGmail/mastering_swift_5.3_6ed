@@ -293,15 +293,74 @@ countries.removeAll()
 
 // * Set
 // ** Initializing a set
+// Initializes an empty set of the String type
+var mySet = Set<String>()
+
+// Initializes a mutable set of the String type with initial values
+var mySet2 = Set(["one", "two", "three"])
+
+// Creates an immutable set of the String type
+let mySet3 = Set(["one", "two", "three"])
 
 // ** Inserting items into a set
+mySet.insert("One")
+mySet.insert("Two")
+mySet.insert("Three")
+
+var results = mySet.insert("One")
+if results.inserted {
+    print("Success")
+} else {
+    print("Failed")
+}
 
 // ** Determining the number of items in a set
+print("\(mySet.count) items")
 
 // ** Checking whether a set contains an item
+var contains = mySet.contains("Two")
 
 // ** Iterating over a set
+for item in mySet {
+    print(item)
+}
 
 // ** Removing items in a set
+// The remove method will return and remove an item from a set
+var item = mySet.remove("Two")
+
+// The removeAll method will remove all items from a set
+mySet.removeAll()
 
 // ** Set operations
+var mySet4 = Set(["One", "Two", "Three", "abc"])
+var mySet5 = Set(["abc", "def", "ghi", "One"])
+
+var newSetUnion = mySet4.union(mySet5)
+
+// perform the union function in place
+mySet4.formUnion(mySet5)
+
+mySet4 = Set(["One", "Two", "Three", "abc"])
+mySet5 = Set(["abc", "def", "ghi", "One"])
+
+var newSetSubtract = mySet4.subtracting(mySet5)
+
+// in place
+mySet4.subtract(mySet5)
+
+mySet4 = Set(["One", "Two", "Three", "abc"])
+mySet5 = Set(["abc", "def", "ghi", "One"])
+
+var newSetIntersect = mySet4.intersection(mySet5)
+
+// in place
+mySet4.formIntersection(mySet5)
+
+mySet4 = Set(["One", "Two", "Three", "abc"])
+mySet5 = Set(["abc", "def", "ghi", "One"])
+
+var newSetExclusiveOr = mySet4.symmetricDifference(mySet5)
+
+// in place
+mySet4.formSymmetricDifference(mySet5)
