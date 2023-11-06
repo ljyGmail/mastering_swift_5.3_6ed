@@ -269,22 +269,134 @@ default:
 
 // ** The for-in loop
 // *** Using the for-in loop
+for index in 1...5 {
+    print(index)
+}
+
+var countries = ["USA", "UK", "IN"]
+for item in countries {
+    print(item)
+}
+
+// iterate over a dictionary with the for-in loop:
+var dic = ["USA": "United States", "UK": "United Kingdom", "IN": "India"]
+
+for (abbr, name) in dic {
+    print("\(abbr) -- \(name)")
+}
 
 // ** The while loop
 // *** Using the while loop
+var ran = 0
+while ran < 7 {
+    ran = Int.random(in: 1..<20)
+}
 
 // *** Using the repeat-while loop
+var ran2: Int
+repeat {
+    ran2 = Int.random(in: 1..<20)
+} while ran2 < 4
 
 // * Using case and where statements with conditional statements and loops
 // ** Filtering with the where statement
+for number in 1...30 {
+    if number % 3 == 0 {
+        print(number)
+    }
+}
+
+for number in 1...30 where number % 3 == 0 {
+    print(number)
+}
 
 // ** Filtering with the for-case statement
+var worldSeriesWinners = [
+    ("Red Sox", 2004),
+    ("White Sox", 2005),
+    ("Cardinals", 2006),
+    ("Red Sox", 2007),
+    ("Phillies", 2008),
+    ("Yankees", 2009),
+    ("Giants", 2010),
+    ("Cardinals", 2011),
+    ("Giants", 2012),
+    ("Red Sox", 2013),
+    ("Giants", 2014),
+    ("Royals", 2015)
+]
+
+for case let ("Red Sox", year) in worldSeriesWinners {
+    print(year)
+}
+
+// filter out the nil values in an array of optionals
+let myNumbers: [Int?] = [1, 2, nil, 4, 5, nil, 6]
+for case let .some(num) in myNumbers {
+    print(num)
+}
+
+// use the question mark (?? symbol as a shorthand for .some(), and use where to perform additional filtering:
+for case let num? in myNumbers where num > 3 {
+    print(num)
+}
+
+// do the same filtering without the case or where statements:
+for num in myNumbers {
+    if let num = num {
+        if num > 3 {
+            print(num)
+        }
+    }
+}
 
 // ** Using the if-case statement
+enum Identifier {
+    case Name(String)
+    case Number(Int)
+    case NoIdentifier
+}
+
+var playerIdentifier = Identifier.Number(2)
+if case let .Number(num) = playerIdentifier {
+    print("Player's number is \(num)")
+}
+
+// perform additional filtering
+if case let .Number(num) = playerIdentifier, num == 2 {
+    print("Player is either XanderBogarts or Derek Jeter")
+}
 
 // * Control transfer statements
 // ** The continue statement
+// print out only the odd numbers in a range:
+for i in 1...10 {
+    if i % 2 == 0 {
+        continue
+    }
+    print("\(i) is odd")
+}
 
 // ** The break statement
+// break out of a for-in loop when the first even number is encountered
+for i in 1...10 {
+    if i % 2 == 0 {
+        break
+    }
+    print("\(i) is odd")
+}
 
 // ** The fallthrough statement
+var name = "Jon"
+var sport = "Baseball"
+
+switch sport {
+case "Baseball":
+    print("\(name) plays Baseball")
+    fallthrough
+case "Basketball":
+    print("\(name) plays Basketball")
+    fallthrough
+default:
+    print("Unknow sport")
+}
